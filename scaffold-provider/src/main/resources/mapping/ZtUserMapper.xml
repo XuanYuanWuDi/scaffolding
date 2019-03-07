@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzx.scaffold.provider.mapper.ZtUserMapper">
+  <resultMap id="BaseResultMap" type="com.lzx.scaffold.entity.ZtUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dept" jdbcType="INTEGER" property="dept" />
+    <result column="account" jdbcType="CHAR" property="account" />
+    <result column="password" jdbcType="CHAR" property="password" />
+    <result column="role" jdbcType="CHAR" property="role" />
+    <result column="realname" jdbcType="CHAR" property="realname" />
+    <result column="nickname" jdbcType="CHAR" property="nickname" />
+    <result column="commiter" jdbcType="VARCHAR" property="commiter" />
+    <result column="avatar" jdbcType="CHAR" property="avatar" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="email" jdbcType="CHAR" property="email" />
+    <result column="skype" jdbcType="CHAR" property="skype" />
+    <result column="qq" jdbcType="CHAR" property="qq" />
+    <result column="yahoo" jdbcType="CHAR" property="yahoo" />
+    <result column="gtalk" jdbcType="CHAR" property="gtalk" />
+    <result column="wangwang" jdbcType="CHAR" property="wangwang" />
+    <result column="mobile" jdbcType="CHAR" property="mobile" />
+    <result column="phone" jdbcType="CHAR" property="phone" />
+    <result column="address" jdbcType="CHAR" property="address" />
+    <result column="zipcode" jdbcType="CHAR" property="zipcode" />
+    <result column="join" jdbcType="DATE" property="join" />
+    <result column="visits" jdbcType="INTEGER" property="visits" />
+    <result column="ip" jdbcType="CHAR" property="ip" />
+    <result column="last" jdbcType="INTEGER" property="last" />
+    <result column="fails" jdbcType="TINYINT" property="fails" />
+    <result column="locked" jdbcType="TIMESTAMP" property="locked" />
+    <result column="deleted" jdbcType="CHAR" property="deleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dept, account, `password`, `role`, realname, nickname, commiter, avatar, birthday, 
+    gender, email, skype, qq, yahoo, gtalk, wangwang, mobile, phone, address, zipcode, 
+    `join`, visits, ip, `last`, fails, locked, deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zt_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from zt_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lzx.scaffold.entity.ZtUser">
+    insert into zt_user (id, dept, account, 
+      `password`, `role`, realname, nickname, 
+      commiter, avatar, birthday, 
+      gender, email, skype, qq, 
+      yahoo, gtalk, wangwang, mobile, 
+      phone, address, zipcode, `join`, 
+      visits, ip, `last`, fails, 
+      locked, deleted)
+    values (#{id,jdbcType=INTEGER}, #{dept,jdbcType=INTEGER}, #{account,jdbcType=CHAR}, 
+      #{password,jdbcType=CHAR}, #{role,jdbcType=CHAR}, #{realname,jdbcType=CHAR}, #{nickname,jdbcType=CHAR}, 
+      #{commiter,jdbcType=VARCHAR}, #{avatar,jdbcType=CHAR}, #{birthday,jdbcType=DATE}, 
+      #{gender,jdbcType=CHAR}, #{email,jdbcType=CHAR}, #{skype,jdbcType=CHAR}, #{qq,jdbcType=CHAR}, 
+      #{yahoo,jdbcType=CHAR}, #{gtalk,jdbcType=CHAR}, #{wangwang,jdbcType=CHAR}, #{mobile,jdbcType=CHAR}, 
+      #{phone,jdbcType=CHAR}, #{address,jdbcType=CHAR}, #{zipcode,jdbcType=CHAR}, #{join,jdbcType=DATE}, 
+      #{visits,jdbcType=INTEGER}, #{ip,jdbcType=CHAR}, #{last,jdbcType=INTEGER}, #{fails,jdbcType=TINYINT}, 
+      #{locked,jdbcType=TIMESTAMP}, #{deleted,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lzx.scaffold.entity.ZtUser">
+    insert into zt_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dept != null">
+        dept,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="role != null">
+        `role`,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="commiter != null">
+        commiter,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="skype != null">
+        skype,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="yahoo != null">
+        yahoo,
+      </if>
+      <if test="gtalk != null">
+        gtalk,
+      </if>
+      <if test="wangwang != null">
+        wangwang,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="zipcode != null">
+        zipcode,
+      </if>
+      <if test="join != null">
+        `join`,
+      </if>
+      <if test="visits != null">
+        visits,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="last != null">
+        `last`,
+      </if>
+      <if test="fails != null">
+        fails,
+      </if>
+      <if test="locked != null">
+        locked,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dept != null">
+        #{dept,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=CHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=CHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=CHAR},
+      </if>
+      <if test="commiter != null">
+        #{commiter,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=CHAR},
+      </if>
+      <if test="skype != null">
+        #{skype,jdbcType=CHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=CHAR},
+      </if>
+      <if test="yahoo != null">
+        #{yahoo,jdbcType=CHAR},
+      </if>
+      <if test="gtalk != null">
+        #{gtalk,jdbcType=CHAR},
+      </if>
+      <if test="wangwang != null">
+        #{wangwang,jdbcType=CHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=CHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=CHAR},
+      </if>
+      <if test="join != null">
+        #{join,jdbcType=DATE},
+      </if>
+      <if test="visits != null">
+        #{visits,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=CHAR},
+      </if>
+      <if test="last != null">
+        #{last,jdbcType=INTEGER},
+      </if>
+      <if test="fails != null">
+        #{fails,jdbcType=TINYINT},
+      </if>
+      <if test="locked != null">
+        #{locked,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lzx.scaffold.entity.ZtUser">
+    update zt_user
+    <set>
+      <if test="dept != null">
+        dept = #{dept,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=CHAR},
+      </if>
+      <if test="role != null">
+        `role` = #{role,jdbcType=CHAR},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=CHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=CHAR},
+      </if>
+      <if test="commiter != null">
+        commiter = #{commiter,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=CHAR},
+      </if>
+      <if test="skype != null">
+        skype = #{skype,jdbcType=CHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=CHAR},
+      </if>
+      <if test="yahoo != null">
+        yahoo = #{yahoo,jdbcType=CHAR},
+      </if>
+      <if test="gtalk != null">
+        gtalk = #{gtalk,jdbcType=CHAR},
+      </if>
+      <if test="wangwang != null">
+        wangwang = #{wangwang,jdbcType=CHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=CHAR},
+      </if>
+      <if test="zipcode != null">
+        zipcode = #{zipcode,jdbcType=CHAR},
+      </if>
+      <if test="join != null">
+        `join` = #{join,jdbcType=DATE},
+      </if>
+      <if test="visits != null">
+        visits = #{visits,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=CHAR},
+      </if>
+      <if test="last != null">
+        `last` = #{last,jdbcType=INTEGER},
+      </if>
+      <if test="fails != null">
+        fails = #{fails,jdbcType=TINYINT},
+      </if>
+      <if test="locked != null">
+        locked = #{locked,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lzx.scaffold.entity.ZtUser">
+    update zt_user
+    set dept = #{dept,jdbcType=INTEGER},
+      account = #{account,jdbcType=CHAR},
+      `password` = #{password,jdbcType=CHAR},
+      `role` = #{role,jdbcType=CHAR},
+      realname = #{realname,jdbcType=CHAR},
+      nickname = #{nickname,jdbcType=CHAR},
+      commiter = #{commiter,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=CHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      gender = #{gender,jdbcType=CHAR},
+      email = #{email,jdbcType=CHAR},
+      skype = #{skype,jdbcType=CHAR},
+      qq = #{qq,jdbcType=CHAR},
+      yahoo = #{yahoo,jdbcType=CHAR},
+      gtalk = #{gtalk,jdbcType=CHAR},
+      wangwang = #{wangwang,jdbcType=CHAR},
+      mobile = #{mobile,jdbcType=CHAR},
+      phone = #{phone,jdbcType=CHAR},
+      address = #{address,jdbcType=CHAR},
+      zipcode = #{zipcode,jdbcType=CHAR},
+      `join` = #{join,jdbcType=DATE},
+      visits = #{visits,jdbcType=INTEGER},
+      ip = #{ip,jdbcType=CHAR},
+      `last` = #{last,jdbcType=INTEGER},
+      fails = #{fails,jdbcType=TINYINT},
+      locked = #{locked,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

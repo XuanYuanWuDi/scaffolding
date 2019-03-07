@@ -1,0 +1,3 @@
+com/lzx/scaffold/entity/response/BaseResponse.class
+com/lzx/scaffold/entity/request/BaseRequest.class
+com/lzx/scaffold/enums/ResultEnum.class
